@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container col-6 bg-dark mx-auto p-4">
+        <h2 class="text-primary">Dojo Survey</h2>
+        <form action="/dojo/create/" method="POST">
+            <div class="form-row">
+                <div class="col-8 text-white mb-2">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" class = 'form-control'>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-8 text-white">
+                    <label for="comments">Male:</label>
+                    <input type="radio" name="gender" id="Male" value = "Male">
+                    <label for="comments">Female:</label>
+                    <input type="radio" name="gender" id="Female" value = "Female">
+                    <label for="comments">Nonbinary:</label>
+                    <input type="radio" name="gender" id="Non-binary" value = "Non-binary">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-5 text-white">
+                    <label for="location">Dojo Location:</label>
+                    <select name="location">
+                        <option value="location">--Select A Location--</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="Online">Online</option>
+                        <option value="Burbank">Burbank</option>
+                        <option value="Bellevue">Bellevue</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-5 text-white">
+                    <label for="language">Favorite Language:</label>
+                    <select name="language">
+                        <option value="language">--Select A Language--</option>
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="Javascript">Javascript</option>
+                        <option value="Python">Python</option>
+                        <option value="C#">C#</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-5 text-white">
+                    <label for="comment">Comments:</label>
+                    <textarea name="comment" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="col-8 text-white">
+                    <label for="checkbox">I am not a robot</label>
+                    <input type="checkbox" name="robot" id="robot">
+                </div>
+                <div class="col-12 text-white">
+                    <label for="checkbox">I would like to receive the Dojo newsletter</label>
+                    <input type="checkbox" name="robot" id="newsletter">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-5 text-white">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+<div class = "text-danger">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+</div>
+            
+        </form>
+    </div>
+</body>
+</html>
